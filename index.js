@@ -3,7 +3,7 @@ window.onload = function() {
 }
 
 const get_students = async () => {
-	const access_token = '852b707e5429d0a321fa784cfd9aa68a39927675';
+	const access_token = '';
 	const github_api_get_students = `https://api.github.com/repos/kottans/frontend-2019-homeworks/contents/submissions/?access_token=${access_token}`;
 	try {
 		const response = await fetch(github_api_get_students);
@@ -15,7 +15,7 @@ const get_students = async () => {
 }
 
 const get_student_tasks = async (student_name) => {
-	const access_token = '852b707e5429d0a321fa784cfd9aa68a39927675';
+	const access_token = '';
 	let github_api_get_student_tasks = `https://api.github.com/repos/kottans/frontend-2019-homeworks/contents/submissions/${student_name}?ref=master&access_token=${access_token}`;
 	try {
 		const response = await fetch(github_api_get_student_tasks);
