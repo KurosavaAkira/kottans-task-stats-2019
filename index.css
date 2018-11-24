@@ -15,38 +15,30 @@ body, html {
   margin: 0;
 }
 
-body::before {
-  position: absolute;
-  background-image: url(logo.png);
+#container {
+  background-image: url(img/logo.png);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 30%;
-  pointer-events: none;
-  content: "";
   width: 100%;
   height: 100%;
-  opacity: 0.1;
-}
-
-#container {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  padding-top: 100px;
-  width: 600px;
+  opacity: 1;
 }
 
 .wrapper {
-    display: grid;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding-top: 100px;
+    width: 600px;
     background-color: rgba(0, 0, 0, 0);
 }
 
 .box {
     display: flex;
     font-size: 24px;
-    border-bottom: 2px solid #394b66;
+    border-bottom: 2px solid #394b66c5;
     margin-top: 10px;
     color: #5ee3f5;
     text-shadow: 0 0 2px;
@@ -58,11 +50,11 @@ body::before {
     text-decoration: none;
 }
 
-.box:first-child {
+.box:first-child, .box:last-child {
     font-size: 30px;
     margin-bottom: 20px;
     color: #86ecf0;
-    background: #394b66;
+    background: #121e31b3;
     padding: 10px 10px;
     justify-content: space-around;
     border: 0px;
@@ -77,6 +69,7 @@ body::before {
 }
 
 .box-name span {
+    margin-left: 20px;
     padding-right: 20px;
     color: #4495a0;
     text-shadow: 0 0 0px;
@@ -101,4 +94,25 @@ body::before {
 
 .box-task:hover .tooltiptext {
     visibility: visible;
+}
+
+.box:last-child {
+    font-size: 16px;
+    justify-content: space-between;
+    padding: 16px 20px;
+    text-shadow: 0 0 0px;
+}
+
+.box-pull {
+    color: #ffcffd;
+}
+
+.box-fork {
+    color: #6bffc2;
+}
+
+.box img {
+    height: 16px;
+    margin-bottom: -2px;
+    padding-right: 5px;
 }
