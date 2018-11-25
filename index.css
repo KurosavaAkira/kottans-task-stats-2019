@@ -6,6 +6,7 @@
 body, html {
   font-family: Helvetica;
   height: 100%;
+  width:100%;
   background-image: linear-gradient(to right top, #394b66, #3c506e, #405575, #435b7d, #476085);
   background-attachment: fixed;
   background-position: center;
@@ -13,12 +14,13 @@ body, html {
   background-size: cover;
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
 }
 
 #container {
   background-image: url(img/logo.png);
   background-attachment: fixed;
-  background-position: center;
+  background-position: left bottom;
   background-repeat: no-repeat;
   background-size: 30%;
   width: 100%;
@@ -38,11 +40,20 @@ body, html {
 .box {
     display: flex;
     font-size: 24px;
-    border-bottom: 2px solid #394b66c5;
+    border-bottom: 4px solid #111c2b24;
+    padding-bottom: 11px;
     margin-top: 10px;
+    margin-left: 40px;
     color: #5ee3f5;
     text-shadow: 0 0 2px;
     justify-content: space-between;
+    width: 95%;
+    animation: box-show .3s, linear 0s 1;
+}
+
+@keyframes box-show {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 .box a {
@@ -55,9 +66,11 @@ body, html {
     margin-bottom: 20px;
     color: #86ecf0;
     background: #121e31b3;
-    padding: 10px 10px;
-    justify-content: space-around;
+    padding: 20px 25px;
+    margin-left: 0px;
+    justify-content: space-between;
     border: 0px;
+    width: 100%;
 }
 
 .box:first-child .box-task {
@@ -65,7 +78,7 @@ body, html {
 }
 
 .box-task:not(:first-child) {
-    padding-right: 160px;
+    padding-right: 30px;
 }
 
 .box-name span {
@@ -96,10 +109,15 @@ body, html {
     visibility: visible;
 }
 
+.box:nth-last-child(2) {
+    border-bottom: 0px;
+}
+
 .box:last-child {
     font-size: 16px;
     justify-content: space-between;
-    padding: 16px 20px;
+    margin-top: 20px;
+    padding: 20px 25px;
     text-shadow: 0 0 0px;
 }
 
@@ -115,4 +133,35 @@ body, html {
     height: 16px;
     margin-bottom: -2px;
     padding-right: 5px;
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper  {
+        padding-top: 0px;
+        width: 100%;
+    }
+    .box {
+        font-size: 20px;
+        margin-left: 0px;
+        width: 100%;
+    }
+    .box:first-child, .box:last-child {
+        font-size: 24px;
+        padding: 20px 0px;
+        margin: 0;
+    }
+    .box:last-child {
+        font-size: 16px;
+    }
+    .box-task:not(:first-child) {
+        padding-right: 20px;
+    }
+    .box:first-child .box-task, .box:last-child .box-fork {
+        padding-right: 10px;
+    }
+    .box:first-child .box-name, .box:last-child .box-pull {
+        padding-left: 10px;
+    }
+    .box-task:hover .tooltiptext {
+        visibility: hidden;
 }
