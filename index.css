@@ -77,6 +77,11 @@ body, html {
     padding-right: 0px;
 }
 
+.box:first-child a {
+    color: #c2fdff;
+    text-shadow: 0 0 2px;
+}
+
 .box-task:not(:first-child) {
     padding-right: 30px;
 }
