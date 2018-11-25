@@ -7,7 +7,11 @@ const getStudents = async () => {
 	const github_api_get_students = `https://api.github.com/repos/kottans/frontend-2019-homeworks/contents/submissions/?access_token=${access_token}`;
 	try {
 		const response = await fetch(github_api_get_students);
-		if (!response.ok) throw new Error(response.statusText);
+		if (!response.ok) {
+			const wrapper = document.getElementsByClassName('wrapper')[0];
+			wrapper.insertAdjacentHTML('beforeend', error(response.statusText));
+			throw new Error(response.statusText);
+		}
 		return data = await response.json();
 	} catch(err) {
 		return err;
@@ -86,6 +90,13 @@ const repoStats= async () => {
 	stats.pull_requests = row_stats.open_issues_count;
 	stats.forks = row_stats.forks;
 	return stats;
+}
+
+const error = (error) => {
+	return `<div class="box">
+				<div class="box-name">${error} - GitHub API limit is 60 requests per hour for each user. 
+				Please, try again later or fork this app and insert you GitHub access_token.</div>
+			</div>`
 }
 
 const titleHtml = () => {
