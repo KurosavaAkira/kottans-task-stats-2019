@@ -87,6 +87,11 @@ body, html {
     padding-right: 30px;
 }
 
+.box:not(:first-child) a:hover {
+    color: #c2fdff;
+    text-shadow: 0 0 4px;
+}
+
 .box-name span {
     margin-left: 20px;
     padding-right: 20px;
