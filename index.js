@@ -95,7 +95,7 @@ const repoStats= async () => {
 const error = (error) => {
 	return `<div class="box">
 				<div class="box-name">${error} - GitHub API limit is 60 requests per hour for each user. 
-				Please, try again later or fork this app and insert you GitHub access_token.</div>
+				Please, try again later or fork this app and insert your GitHub access_token.</div>
 			</div>`
 }
 
