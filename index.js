@@ -56,7 +56,7 @@ const createStudents = async () => {
 	let students = [];
 	row_students.forEach(student => {
 		let new_student = new Student(student.name, [], student.html_url, student.git_url);
-		students.push(new_student);
+		if(new_student.name !== '.DS_Store') students.push(new_student);
 	});
 	return students;
 }
@@ -66,7 +66,7 @@ const createStudentsTask = async () => {
 	return Promise.all(students.map(async (student, i) => {
 		let tasks = await getStudentTasks(student.name);
 		tasks.forEach(task => {
-			students[i].tasks.push(task.name)
+			if(task.name !== '.DS_Store') students[i].tasks.push(task.name)
 		});
     return students[i];
 	}));
